@@ -15,6 +15,24 @@
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content="/og.jpg" />
+    <script type="text/javascript">
+      (function () {
+        if (window.location.search.startsWith("?/")) {
+          var decoded = window.location.search
+            .slice(2)
+            .split("&")
+            .map(function (s) {
+              return s.replace(/~and~/g, "&");
+            })
+            .join("?");
+          window.history.replaceState(
+            null,
+            null,
+            window.location.pathname.replace(/\/$/, "") + "/" + decoded + window.location.hash
+          );
+        }
+      })();
+    </script>
   </head>
 
   <body>
